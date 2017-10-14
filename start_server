@@ -1,2 +1,2 @@
-nohup sudo python3 src/app.py > server.log 2>&1 &
+sudo nohup python3 src/app.py > server.log 2>&1 &
 echo $! > pid.txt

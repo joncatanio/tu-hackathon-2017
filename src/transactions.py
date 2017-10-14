@@ -43,4 +43,4 @@ def get_transactions(user_id):
          return json.dumps(transactions), 200
    except MySQLError as err:
       print(err)
-      return 500
+      return json.dumps({}), 500

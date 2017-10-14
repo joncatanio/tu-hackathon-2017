@@ -8,7 +8,7 @@ CREATE TABLE Cards (
    benefit_type ENUM("miles", "flat", "quarterly"),
    multiplier   DOUBLE(4, 4),
    quarter_mult DOUBLE(4, 4),
-   quarter_type ENUM("department", "gas", "grocery", "restaurant", "air")
+   quarter_type ENUM("department", "gas", "grocery", "restaurant", "air", "misc")
 );
 
 CREATE TABLE Transactions (
@@ -33,4 +33,11 @@ CREATE TABLE Marks (
    received    DATETIME,
    expires     DATETIME,
    description VARCHAR(64)
+);
+
+CREATE TABLE Merchants (
+   id            INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   name          VARCHAR(32),
+   base_url      VARCHAR(64),
+   merchant_type ENUM("department", "gas", "grocery", "restaurant", "air", "misc")
 );

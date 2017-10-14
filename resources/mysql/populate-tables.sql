@@ -31,3 +31,15 @@ INSERT INTO Marks
 VALUES
    (NOW(), DATE_ADD(NOW(), INTERVAL 7 YEAR), 'Missed Payment')
 ;
+
+INSERT INTO Merchants
+   (name, base_url, merchant_type)
+VALUES
+   ('Nordstrom', 'https://secure.nordstrom.com/', 'department'),
+   ('Macy\'s', 'https://www.macys.com/chkout/', 'department'),
+   ('Amazon', 'https://www.amazon.com/gp/buy/payselect/handlers/', 'department'),
+   ('Lululemon', 'https://shop.lululemon.com/checkout/spk/', 'department'),
+   ('Walmart', 'https://www.walmart.com/checkout/#/', 'department'),
+   ('Barnes and Noble', 'https://www.barnesandnoble.com/checkout/', 'misc'),
+   ('Home Depot', 'https://secure2.homedepot.com/mycheckout/checkout#/', 'misc')
+;

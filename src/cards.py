@@ -9,6 +9,6 @@ import json
 
 cards_api = Blueprint('cards_api', __name__)
 
-@transaction_api.route("/cards/<user_id>")
+@cards_api.route("/cards/<user_id>")
 def get_user_cards(user_id):
    print("hi")

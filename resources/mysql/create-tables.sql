@@ -11,6 +11,14 @@ CREATE TABLE Cards (
    quarter_type ENUM("department", "gas", "grocery", "restaurant", "air", "misc")
 );
 
+CREATE TABLE ScoreHistory (
+   id           INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   user_id      INT UNSIGNED,
+   score        INT UNSIGNED,
+   archive_date DATETIME,
+   move_reason  VARCHAR(128)
+);
+
 CREATE TABLE Transactions (
    id        INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    user_id   INT UNSIGNED,
@@ -20,7 +28,7 @@ CREATE TABLE Transactions (
    timestamp DATETIME
 );
 
-CREATE TABLE Inqueries (
+CREATE TABLE Inquiries (
    id       INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    user_id  INT UNSIGNED,
    text     VARCHAR(32),

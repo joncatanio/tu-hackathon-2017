@@ -6,6 +6,18 @@ VALUES
    (1, '0.00', '7500.00', 'credit', 'United MileagePlus', 'miles', '0.01', '0.02', 'air')
 ;
 
+INSERT INTO ScoreHistory
+   (user_id, score, archive_date, move_reason)
+VALUES
+   (1, 620, DATE_ADD(NOW(), INTERVAL -5 MONTH), 'Opened first credit card account'),
+   (1, 650, DATE_ADD(NOW(), INTERVAL -4 MONTH), 'On-time payments'),
+   (1, 640, DATE_ADD(NOW(), INTERVAL -3 MONTH), 'Applied for student loan'),
+   (1, 690, DATE_ADD(NOW(), INTERVAL -2 MONTH), 'Utilization'),
+   (1, 675, DATE_ADD(NOW(), INTERVAL -1 MONTH), 'Hard inquiry'),
+   (1, 713, NOW(), 'Utilization')
+;
+
+
 INSERT INTO Transactions
    (user_id, card_id, amount, merchant, timestamp)
 VALUES
@@ -18,7 +30,7 @@ VALUES
    (1, 2, '1215.54', 'Newegg.com', DATE_ADD(NOW(), INTERVAL -15 DAY))
 ;
 
-INSERT INTO Inqueries
+INSERT INTO Inquiries
    (user_id, text, inq_type, date)
 VALUES
    (1, 'ABC COMPANY CO', 'hard', NOW()),

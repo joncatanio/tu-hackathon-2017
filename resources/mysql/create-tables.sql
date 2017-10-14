@@ -20,7 +20,7 @@ CREATE TABLE Transactions (
    timestamp DATETIME
 );
 
-CREATE TABLE Inquiries (
+CREATE TABLE Inqueries (
    id       INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    user_id  INT UNSIGNED,
    text     VARCHAR(32),

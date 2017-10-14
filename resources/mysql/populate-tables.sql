@@ -18,7 +18,7 @@ VALUES
    (1, 2, '1215.54', 'Newegg.com', DATE_ADD(NOW(), INTERVAL -15 DAY))
 ;
 
-INSERT INTO Inquiries
+INSERT INTO Inqueries
    (user_id, text, inq_type, date)
 VALUES
    (1, 'ABC COMPANY CO', 'hard', NOW()),

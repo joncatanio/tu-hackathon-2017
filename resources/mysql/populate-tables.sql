@@ -59,5 +59,5 @@ VALUES
 INSERT INTO Notifications
    (user_id, text, timestamp, has_read)
 VALUES
-   (1, "Weekly score update: your credit score is 743!", NOW(), FALSE)
+   (1, "Credit score is 743!", NOW(), FALSE)
 ;

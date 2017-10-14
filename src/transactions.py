@@ -90,8 +90,10 @@ def add_transaction():
                VALUES
                   (%s, %s, NOW(), FALSE)
             '''
-            cur.execute(sql, [req['user_id'],
-               record['name'] + ' exceeds 30% usage at ' + str(round(usage,2)) + '%'])
+            long_notification = record['name'] + ' exceeds 30% usage at ' + str(round(usage,2)) + '%'
+            short_notification = '30% usage exceeded'
+            cur.execute(sql, [req['user_id'], short_notification])
+
          connection.mysql_conn.commit()
 
          return json.dumps({}), 200

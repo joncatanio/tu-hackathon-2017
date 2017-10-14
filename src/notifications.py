@@ -14,7 +14,7 @@ def get_notifications(user_id):
    try:
       with connection.mysql_conn.cursor() as cur:
          sql = '''
-            SELECT text
+            SELECT id, text
             FROM Notifications
             WHERE
                user_id = %s
@@ -27,6 +27,7 @@ def get_notifications(user_id):
 
          for record in records:
             notification = {}
+            notification['id'] = record['id']
             notification['notification_text'] = record['text']
 
             notifications.append(notification)

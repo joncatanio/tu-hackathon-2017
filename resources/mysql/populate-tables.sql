@@ -7,15 +7,15 @@ VALUES
 ;
 
 INSERT INTO Transactions
-   (user_id, card_id, amount, merchant)
+   (user_id, card_id, amount, merchant, timestamp)
 VALUES
-   (1, 1, '-15.12', 'SLO Barbeque'),
-   (1, 1, '-56.98', 'BEST BUY'),
-   (1, 1, '-51.31', 'Nordstrom Online'),
-   (1, 2, '-1023.12', 'Big O Tires'),
-   (1, 2, '-89.15', 'KIA SERVICE CENTER'),
-   (1, 2, '-122.31', 'Fancy Steakhouse'),
-   (1, 2, '-1215.54', 'Newegg.com')
+   (1, 1, '-15.12', 'SLO Barbeque', NOW()),
+   (1, 1, '-56.98', 'BEST BUY', NOW()),
+   (1, 1, '-51.31', 'Nordstrom Online', NOW()),
+   (1, 2, '-1023.12', 'Big O Tires', NOW()),
+   (1, 2, '-89.15', 'KIA SERVICE CENTER', NOW()),
+   (1, 2, '-122.31', 'Fancy Steakhouse', NOW()),
+   (1, 2, '-1215.54', 'Newegg.com', NOW())
 ;
 
 INSERT INTO Inquiries

@@ -7,11 +7,13 @@ import connection as conn
 
 # Import blueprints
 from welcome import welcome_api
+from transactions import transaction_api
 
 app = Flask(__name__)
 
 # Register blueprints
 app.register_blueprint(welcome_api)
+app.register_blueprint(transaction_api)
 
 @app.route("/")
 def main():

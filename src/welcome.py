@@ -3,9 +3,9 @@
 # Description: API endpoints for the welcome splash page
 
 from pymysql import MySQLError
-import json
 from flask import Blueprint, request
 import connection
+import json
 
 welcome_api = Blueprint('welcome_api', __name__)
 

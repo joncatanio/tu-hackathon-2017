@@ -117,3 +117,42 @@ def get_ranked_cards(cards, merchant_url):
    except MySQLError as err:
       print(err)
       return json.dumps({}), 500
+
+@cards_api.route("/simplecards/<user_id>")
+def get_simple_card(user_id):
+   try:
+      with connection.mysql_conn.cursor() as cur:
+         sql = '''
+            SELECT
+               balance,
+               credit_limit,
+               type,
+               name
+            FROM
+               Cards
+            WHERE
+               user_id = %s
+         '''
+
+         cur.execute(sql, [user_id])
+         records = cur.fetchall()
+         cards = []
+
+         for record in records:
+            card = {}
+            card['balance'] = float(str(record['balance']))
+            card['credit_limit'] = float(str(record['credit_limit']))
+            card['type'] = record['type']
+            card['card_name'] = record['name']
+
+            cards.append(card)
+
+         total_balance = sum(float(card['balance']) for card in cards)
+         total_limit = sum(float(card['credit_limit']) for card in cards)
+         total_usage = round(total_balance / total_limit * 100, 2)
+         rtn = { 'overall_usage': total_usage, 'cards': cards }
+
+         return json.dumps(rtn), 500
+   except MySQLError as err:
+      print(err)
+      return json.dumps({}), 500

@@ -11,4 +11,7 @@ cards_api = Blueprint('cards_api', __name__)
 
 @cards_api.route("/cards/<user_id>")
 def get_user_cards(user_id):
-   print("hi")
+   print("--------------------------------------")
+   print(user_id)
+   print(request.headers['Merchant_Url'])
+   return 200

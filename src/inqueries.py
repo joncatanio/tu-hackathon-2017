@@ -15,7 +15,7 @@ def get_inqueries(user_id):
       with connection.mysql_conn.cursor() as cur:
          sql = '''
             SELECT id, text, inq_type, date
-            FROM Inquiries
+            FROM Inqueries
             WHERE user_id = %s
          '''
 

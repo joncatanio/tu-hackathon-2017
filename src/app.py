@@ -9,6 +9,8 @@ import connection as conn
 from welcome import welcome_api
 from transactions import transaction_api
 from cards import cards_api
+from user import user_api
+from notifications import notifications_api
 
 app = Flask(__name__)
 
@@ -16,6 +18,8 @@ app = Flask(__name__)
 app.register_blueprint(welcome_api)
 app.register_blueprint(transaction_api)
 app.register_blueprint(cards_api)
+app.register_blueprint(user_api)
+app.register_blueprint(notifications_api)
 
 @app.route("/")
 def main():

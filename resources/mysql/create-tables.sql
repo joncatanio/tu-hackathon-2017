@@ -30,6 +30,7 @@ CREATE TABLE Inquiries (
 
 CREATE TABLE Marks (
    id          INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   user_id     INT UNSIGNED,
    received    DATETIME,
    expires     DATETIME,
    description VARCHAR(64)
@@ -40,4 +41,12 @@ CREATE TABLE Merchants (
    name          VARCHAR(32),
    base_url      VARCHAR(64),
    merchant_type ENUM("department", "gas", "grocery", "restaurant", "air", "misc")
+);
+
+CREATE TABLE Notifications (
+   id INT    UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   user_id   INT UNSIGNED,
+   text      VARCHAR(64),
+   timestamp DATETIME,
+   has_read  BOOLEAN
 );

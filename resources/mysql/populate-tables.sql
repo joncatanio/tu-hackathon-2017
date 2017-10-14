@@ -27,9 +27,9 @@ VALUES
 ;
 
 INSERT INTO Marks
-   (received, expires, description)
+   (user_id, received, expires, description)
 VALUES
-   (NOW(), DATE_ADD(NOW(), INTERVAL 7 YEAR), 'Missed Payment')
+   (1, NOW(), DATE_ADD(NOW(), INTERVAL 7 YEAR), 'Missed Payment')
 ;
 
 INSERT INTO Merchants
@@ -42,4 +42,10 @@ VALUES
    ('Walmart', 'https://www.walmart.com/checkout/#/', 'department'),
    ('Barnes and Noble', 'https://www.barnesandnoble.com/checkout/', 'misc'),
    ('Home Depot', 'https://secure2.homedepot.com/mycheckout/checkout#/', 'misc')
+;
+
+INSERT INTO Notifications
+   (user_id, text, timestamp, has_read)
+VALUES
+   (1, "Weekly score update: your credit score is 743!", NOW(), FALSE)
 ;

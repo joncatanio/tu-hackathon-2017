@@ -152,7 +152,7 @@ def get_simple_card(user_id):
          total_usage = round(total_balance / total_limit * 100, 2)
          rtn = { 'overall_usage': total_usage, 'cards': cards }
 
-         return json.dumps(rtn), 500
+         return json.dumps(rtn), 200
    except MySQLError as err:
       print(err)
       return json.dumps({}), 500

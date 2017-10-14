@@ -12,11 +12,11 @@ CREATE TABLE Cards (
 );
 
 CREATE TABLE Transactions (
-   id      INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-   user_id INT UNSIGNED,
-   card_id INT UNSIGNED REFERENCES Cards(id),
-   value   DECIMAL(8, 2),
-   info    VARCHAR(128)
+   id       INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   user_id  INT UNSIGNED,
+   card_id  INT UNSIGNED REFERENCES Cards(id),
+   amount   DECIMAL(8, 2),
+   merchant VARCHAR(128)
 );
 
 CREATE TABLE Inquiries (

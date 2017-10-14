@@ -97,6 +97,8 @@ def get_ranked_cards(cards, merchant_url):
                'card_name': type_card['name'],
                'card_usage': type_card['usage'],
                'percent_savings': type_card['quarter_mult'] * 100,
+               'balance': type_card['balance']
+               'limit': type_card['credit_limit']
                'message': 'This card has benefits that apply to the elements in your cart!'
             })
 
@@ -109,6 +111,8 @@ def get_ranked_cards(cards, merchant_url):
                'card_name': card['name'],
                'card_usage': card['usage'],
                'percent_savings': card['multiplier'] * 100,
+               'balance': card['balance']
+               'limit': card['credit_limit']
                'message': 'You might want to utilize this card more' if \
                   card['usage'] < 30.00 else 'The usage on this card is a bit high, maybe consider other options!'
             })

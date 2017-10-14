@@ -45,7 +45,7 @@ def get_user_cards(user_id):
             card['balance'] = str(record['balance'])
             card['credit_limit'] = str(record['credit_limit'])
             card['usage'] = round(float(str(record['balance'])) / \
-               -float(str(record['credit_limit'])) * 100, 2)
+               float(str(record['credit_limit'])) * 100, 2)
             card['type'] = record['type']
             card['name'] = record['name']
             card['benefit_type'] = record['benefit_type']

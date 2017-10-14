@@ -2,7 +2,7 @@ CREATE TABLE Cards (
    id           INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    user_id      INT UNSIGNED,
    balance      DECIMAL(8, 2),
-   limit        DECIMAL(8, 2),
+   credit_limit DECIMAL(8, 2),
    type         ENUM("credit", "debit"),
    name         VARCHAR(32),
    benefit_type ENUM("miles", "flat", "quarterly"),
@@ -32,11 +32,4 @@ CREATE TABLE Marks (
    received    DATETIME,
    expires     DATETIME,
    description VARCHAR(64)
-);
-
-CREATE TABLE Notifications (
-   id     INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-   text   VARCHAR(128),
-   `date` DATETIME,
-   `read` BOOLEAN
 );

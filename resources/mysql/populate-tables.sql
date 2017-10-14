@@ -1,9 +1,9 @@
 INSERT INTO Cards
-   (user_id, balance, type, name, benefit_type, multiplier, quarter_mult, quarter_type)
+   (user_id, balance, credit_limit, `type`, name, benefit_type, multiplier, quarter_mult, quarter_type)
 VALUES
    (1, '-123.41', '8500.00', 'credit', 'Chase Freedom', 'quarterly', '0.01', '0.05', 'department'),
    (1, '-2450.12', '8500.00', 'credit', 'Chase Freedom Unlimited', 'flat', '0.015', NULL, NULL),
-   (1, '0.00', '7500.00', 'credit', 'United MileagePlus', 'miles', 'quarterly', '0.01', '0.02', 'air')
+   (1, '0.00', '7500.00', 'credit', 'United MileagePlus', 'miles', '0.01', '0.02', 'air')
 ;
 
 INSERT INTO Transactions
@@ -23,5 +23,7 @@ VALUES
 ;
 
 INSERT INTO Marks
-
+   (received, expires, description)
+VALUES
+   (NOW(), DATE_ADD(NOW(), INTERVAL 7 YEAR), 'Missed Payment')
 ;

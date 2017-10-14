@@ -12,6 +12,7 @@ from cards import cards_api
 from user import user_api
 from notifications import notifications_api
 from inqueries import inqueries_api
+from marks import marks_api
 
 app = Flask(__name__)
 
@@ -22,6 +23,7 @@ app.register_blueprint(cards_api)
 app.register_blueprint(user_api)
 app.register_blueprint(notifications_api)
 app.register_blueprint(inqueries_api)
+app.register_blueprint(marks_api)
 
 @app.route("/")
 def main():

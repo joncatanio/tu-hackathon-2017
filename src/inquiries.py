@@ -32,7 +32,16 @@ def get_inquiries(user_id):
 
             inquiries.append(inquiry)
 
-         return json.dumps(inquiries), 200
+         hard_inqs = len([t for t in inquiries if t['type'] == 'hard'])
+         soft_inqs = len([t for t in inquiries if t['type'] == 'soft'])
+
+         result = {
+            'hard_inqs': hard_inqs,
+            'soft_inqs': soft_inqs,
+            'inquiries': inquiries
+         }
+
+         return json.dumps(result), 200
    except MySQLError as err:
       print(err)
       return json.dumps({}), 500

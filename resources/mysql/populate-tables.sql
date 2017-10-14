@@ -10,20 +10,20 @@ INSERT INTO Transactions
    (user_id, card_id, amount, merchant, timestamp)
 VALUES
    (1, 1, '15.12', 'SLO Barbeque', NOW()),
-   (1, 1, '56.98', 'BEST BUY', NOW()),
-   (1, 1, '51.31', 'Nordstrom Online', NOW()),
-   (1, 2, '1023.12', 'Big O Tires', NOW()),
-   (1, 2, '89.15', 'KIA SERVICE CENTER', NOW()),
-   (1, 2, '122.31', 'Fancy Steakhouse', NOW()),
-   (1, 2, '1215.54', 'Newegg.com', NOW())
+   (1, 1, '56.98', 'BEST BUY', DATE_ADD(NOW(), INTERVAL -7 DAY)),
+   (1, 1, '51.31', 'Nordstrom Online', DATE_ADD(NOW(), INTERVAL -11 DAY)),
+   (1, 2, '1023.12', 'Big O Tires', DATE_ADD(NOW(), INTERVAL -3 DAY)),
+   (1, 2, '89.15', 'KIA SERVICE CENTER', DATE_ADD(NOW(), INTERVAL -23 DAY)),
+   (1, 2, '122.31', 'Fancy Steakhouse', DATE_ADD(NOW(), INTERVAL -21 DAY)),
+   (1, 2, '1215.54', 'Newegg.com', DATE_ADD(NOW(), INTERVAL -15 DAY))
 ;
 
 INSERT INTO Inquiries
    (user_id, text, inq_type, date)
 VALUES
    (1, 'ABC COMPANY CO', 'hard', NOW()),
-   (1, 'AUTO SHOP INC', 'hard', NOW()),
-   (1, 'GOV INC', 'soft', NOW())
+   (1, 'AUTO SHOP INC', 'hard', DATE_ADD(NOW(), INTERVAL -132 DAY)),
+   (1, 'GOV INC', 'soft', DATE_ADD(NOW(), INTERVAL -15 DAY))
 ;
 
 INSERT INTO Marks

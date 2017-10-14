@@ -44,3 +44,57 @@ def get_transactions(user_id):
    except MySQLError as err:
       print(err)
       return json.dumps({}), 500
+
+@transaction_api.route('/transactions/add', methods = ['POST'])
+def add_transaction():
+   req = request.get_json(True, True, False)
+   if req == None:
+      return json.dumps(response), 500
+
+   try:
+      with connection.mysql_conn.cursor() as cur:
+         sql = '''
+            INSERT INTO Transactions
+               (user_id, card_id, amount, merchant, timestamp)
+            VALUES
+               (%s, %s, %s, %s, NOW())
+         '''
+         cur.execute(sql, [req['user_id'], req['card_id'],
+            req['amount'], req['merchant']])
+
+         sql = '''
+            UPDATE Cards
+            SET balance = balance + %s
+            WHERE id = %s
+         '''
+         cur.execute(sql, [req['amount'], req['card_id']])
+
+         sql = '''
+            SELECT balance, credit_limit, name
+            FROM Cards
+            WHERE id = %s
+         '''
+         cur.execute(sql, [req['card_id']])
+         record = cur.fetchone()
+         cur.fetchall()
+
+         if not record:
+            return json.dumps({}), 500
+
+         usage = float(record['balance']) / float(record['credit_limit']) * 100
+
+         if usage > 30.0:
+            sql = '''
+               INSERT INTO Notifications
+                  (user_id, text, timestamp, has_read)
+               VALUES
+                  (%s, %s, NOW(), FALSE)
+            '''
+            cur.execute(sql, [req['user_id'],
+               record['name'] + ' exceeds 30% usage at ' + str(round(usage,2)) + '%'])
+         connection.mysql_conn.commit()
+
+         return json.dumps({}), 200
+   except MySQLError as err:
+      print(err)
+      return json.dumps({}), 500
